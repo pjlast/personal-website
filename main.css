@@ -1,0 +1,68 @@
+:root {
+  font-family: sans-serif;
+  --font-color: #000228;
+  --background-color: #f8f8ff;
+  --accent-color-1: #05dae8;
+  --accent-color-2: #c200db;
+  --accent-color-3: #ff2a6d;
+  --accent-color-4: #1d1856;
+}
+
+header {
+  display: flex;
+  width: 100%;
+  max-width: 1024px;
+  align-self: center;
+}
+
+header a {
+  text-decoration: none;
+}
+
+a {
+  color: var(--accent-color-3);
+}
+
+p {
+  line-height: 1.5em;
+}
+
+p img {
+  height: 1.5em;
+  vertical-align: bottom;
+  width: auto;
+}
+
+header a:hover {
+  text-decoration: underline;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+}
+
+nav ul li {
+  padding: 0em 1em 0em 1em;
+}
+
+body {
+  color: var(--font-color);
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  max-width: 75ch;
+  min-width: 50ch;
+  align-self: center;
+}
