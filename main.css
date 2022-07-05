@@ -21,7 +21,8 @@ article header {
   flex-direction: column;
 }
 
-header a {
+header h1 a,
+header nav a {
   color: var(--accent-color-3);
   text-decoration: none;
 }
@@ -30,9 +31,6 @@ a {
   color: var(--accent-color-4);
   text-decoration-color: var(--accent-color-1);
   text-decoration-thickness: 3px;
-}
-
-p {
 }
 
 img {
@@ -113,4 +111,8 @@ main {
   margin-left: 10%;
   padding: 10px;
   font-weight: 100;
+}
+
+.image-with-credit {
+  font-style: italic;
 }
