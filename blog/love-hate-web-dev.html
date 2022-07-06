@@ -37,9 +37,9 @@
         </div>
       </header>
       <p>
-        Every few time-units I find myself going through a sort of cleansing
-        when it comes to web development. This cleanse is not intentional, but
-        I've gone through it enough times to recognise a pattern:
+        I love web development. I really do. More than I ever thought I would.
+        Turns out its a lot more than centering divs. But every few time-units I
+        find myself going through a sort of cleansing cycle:
       </p>
       <ol>
         <li>I start working on a personal project</li>
@@ -50,14 +50,14 @@
         </li>
         <li>
           At some point, between the configuration files, compilers, state
-          management etc. I get frustrated. "It cannot be this complicated"
+          management etc. I get frustrated. "It shouldn't be this complicated"
         </li>
         <li>
           I throw it all in the bin and start smashing rocks until I have a page
-          using only HTML and CSS, just like our forefathers intended
+          using only HTML and CSS; just like our forefathers intended
         </li>
         <li>This lasts until I need to do something fun on the page</li>
-        <li>I start experimenting with templating</li>
+        <li>I start experimenting with server-side templating</li>
         <li>I start experimenting with minimal client side JavaScript</li>
         <li>
           I come to the conclusion that I should probably use a JavaScript
@@ -66,10 +66,10 @@
       </ol>
 
       <p>
-        Then I get a bit depressed and unmotivated, and somewhere along the line
-        I've lost sight of what I wanted to do in the first place, which was to
-        build something. If I was a more goal-oriented person, I would probably
-        be able to look past the tools and the processes and just do it, but I
+        Then I get a bit depressed and unmotivated. Somewhere along the line, I
+        lost sight of what I wanted to do in the first place, which was to build
+        something. If I was a more goal-oriented person, I would probably be
+        able to look past the tools and the processes and just do it, but I
         can't help myself getting caught up in the details.
       </p>
 
@@ -80,43 +80,43 @@
         organises the content according to how you laid it out. You sprinkle in
         some CSS so that the browser makes things pretty, and maybe there are
         some events that fire when you interact with the rendered content, which
-        the browser does via the JavaScript you've sent along. All of this just
-        by sending some text over the wire.
+        the browser does via the JavaScript you've sent along. But its all text,
+        and very understandable.
       </p>
       <p>
         When I get to the point where I'm busy setting up configuration files
         for a framework, running compilers and importing 12 libraries from said
-        framework to do what feels like should be a trivial task, I start asking
-        myself why it is necessary in the first place. I can't help but wonder
-        if this is what assembly programmers felt like when compilers came
-        about.
+        framework to do what feels like a trivial task, I start asking myself
+        why it's necessary in the first place. I can't help but wonder if this
+        is what assembly programmers felt like when compilers came about.
       </p>
       <h2>The process</h2>
       <h3>Starting from scratch</h3>
       <p>
         Getting the layout and feel for the page I'm building towards is
-        straight forward. You can get a lot done with modern CSS, with
-        animations and transitions making even simple interactions feel alive.
-        Serving the page is also easy peasy. I write a small web server in Go,
-        add a static route handler so I can serve the CSS file if I'm not doing
-        in-line styling, add the "/" route, and return the page.
+        straightforward. You can get a lot done with modern CSS, with animations
+        and transitions making even simple interactions feel alive. Serving the
+        page is also easy peasy. I write a small web server in Go, add a static
+        route handler so I can serve the CSS file if I'm not doing in-line
+        styling, add the "/" route, and return the page.
       </p>
 
       <p>
         Now if I were building a website that simply conveyed information, this
-        would probably be enough (actually it would be too much, a Go server
-        would not be necessary). Sure there would be some code duplication in
-        the layout of each page, but it is hardly a deal breaker for something
-        that is supposed to be largely static content (although I would probably
-        regret it if I ever wanted to redesign the layout).
+        would probably be enough (the Go server would actually be too much. Slap
+        that shit on GitHub Pages or a Netlify instance and you're good to go).
+        Sure there would be some code duplication in the layout of each page,
+        but it's hardly a deal-breaker for something that is supposed to be
+        largely static content (although I would probably regret it if I ever
+        wanted to redesign the layout).
       </p>
       <h3>Getting fancy</h3>
       <p>
-        At some point I need to start adding some sort of functionality, usually
-        in the form of a user signing in and displaying some profile
-        information. The registering and signing in process can still work
-        perfectly fine up until this point, but actually displaying the user's
-        info back to them causes a fork in the road.
+        At some point, I need to start adding some sort of functionality,
+        usually in the form of a user signing in and displaying some profile
+        information. The registering and sign-in process can still work
+        perfectly fine up until this point, but displaying the user's info back
+        to them causes a fork in the road.
       </p>
       <h4>To JavaScript, or not to JavaScript?</h4>
       <p>
@@ -132,13 +132,13 @@
 
       <p>
         I'll start by saying I'm not a huge fan of templating languages. I don't
-        enjoy the fractured state it leaves the code in. Importing CSS in the
-        layout page that affects the User Profile 3 templates deep just doesn't
-        sit right with me. Furthermore, taking something like the User Interface
-        and coupling it to the back-end server's templating language/framework
-        also feels wrong. It just feels like you should be able to cleanly
-        separate them. It takes a bit more tinkering here for me to decide that,
-        conceptually, I don't like templating.
+        enjoy the fractured state in which it leaves the code. Importing CSS in
+        the layout page that affects the User Profile 3 templates deep just
+        doesn't sit right with me. Furthermore, taking something like the User
+        Interface and coupling it to the back-end server's templating
+        language/framework also feels wrong. It just feels like you should be
+        able to cleanly separate them. It takes a bit more tinkering here for me
+        to decide that, conceptually, I don't like templating.
       </p>
       <h4>To JavaScript</h4>
       <p>
@@ -148,10 +148,10 @@
       </p>
 
       <p>
-        And right off the bat it is already complicated. You see, I don't have
-        access to the user's profile information. It is still on the server, and
-        since I have forsaken templates, the server is simply returning the HTML
-        and nothing else.
+        And right off the bat, it's already complicated. You see, I don't have
+        access to the user's profile information. It's still on the server, and
+        since I have forsaken templates, the server is simply returning the
+        static HTML I wrote beforehand.
       </p>
 
       <p>
@@ -159,56 +159,67 @@
         was just there! Chances are that during the page load, I used the user
         credentials to fetch the user profile and validate that the user exists
         and can access the page, and now that the page is loaded I have to do it
-        again! Why can't I just send a JavaScriptON data response alongside the
-        HTML response, which I can then access using the JavaScript on the page?
+        again! Why can't I just send a JSON response alongside the HTML
+        response, which I can then access using the JavaScript on the page?
       </p>
-
-      <div class="side-note">
-        <div class="side-note-contents">
-          <h3>Side note</h3>
-          I have found a work-around for this, but it still requires a small
-          amount of "server-side templating". You can add a script tag with an
-          id to the HTML you're serving and populate it with a JSON object. Then
-          in your JavaScript you can query for this tag and parse its contents
-          as JSON. This way you're essentially sending a JSON response alongside
-          your HTML response.
-        </div>
-      </div>
 
       <p>
         So now I need to build another end-point that serves the user profile as
-        a JavaScriptON response, I need to add API requests to the “super simple
-        no frills attached” JavaScript I swore I would write. If I'm feeling
+        a JSON response, I need to add API requests to the “super simple
+        no-frills attached” JavaScript I swore I would write. If I'm feeling
         especially diligent I need to write tests for both the back-end serving
         the API, as well as the front-end consuming the API (or maybe just skip
         it altogether and just do an end-to-end test).
       </p>
 
       <p>
-        And suddenly things start feeling complicated again. At this point it is
-        still palatable, but it takes a few more API requests and DOM
-        manipulations to make me feel like it is becoming a mess.
+        And suddenly things start feeling complicated again. At this point, it
+        is still palatable, but it takes a few more API requests and DOM
+        manipulations to make me feel like it's becoming a mess.
       </p>
 
       <p>There must be a better way.</p>
+
+      <div class="side-note">
+        <div class="side-note-contents">
+          <h3>Side note</h3>
+          <p>
+            <i
+              >Why can't I just send a JSON response alongside the HTML
+              response...</i
+            >
+          </p>
+
+          <p>
+            I have found a work-around for this, but it still requires a tiny
+            amount of "server-side templating". You can add a script tag with an
+            id to the HTML you're serving and populate it with a JSON object.
+            Then, in your JavaScript, you can query for this tag and parse its
+            contents as JSON. This way you're essentially sending a JSON
+            response alongside your HTML response, and you don't have to do the
+            round-trip back to the server.
+          </p>
+        </div>
+      </div>
+
       <h3>Choose a JavaScript framework</h3>
       <p>
         Yep. I'm back here. And I have (again) realised why I'm here to begin
-        with. And usually at this point I'm just a bit tired and unmotivated, so
-        I shelf the project (again) for another time.
+        with. And, usually, at this point, I'm just a bit tired and unmotivated,
+        so I shelf the project (again) for another time.
       </p>
 
       <p>
         I don't have anything against JavaScript frameworks. I think most of
         them do a fantastic job. They all kind of achieve the same thing you've
-        done a million times before, but slightly different. Most importantly,
-        they give structure to the development process. Recently I've been
-        dabbling with <a href="https://svelte.dev/">Svelte</a> using
+        done a million times before, but in a slightly different way. Most
+        importantly, they give structure to the development process. Recently
+        I've been dabbling with <a href="https://svelte.dev/">Svelte</a> using
         <a href="https://kit.svelte.dev/">SvelteKit</a> and I think it's
         fantastic. The way components are structured, seamlessly blending the
         scripting, HTML and styling, all in a way that makes everything reactive
-        without having to think about hooks or callbacks: It just works
-        <img src="./itjustworks.png" alt="Todd Howard" />.
+        without having to think about hooks or callbacks is amazing. It just
+        works <img src="./itjustworks.png" alt="Todd Howard" />.
       </p>
 
       <p>
@@ -217,13 +228,13 @@
       </p>
       <h2>Conclusion</h2>
       <p>
-        If there's anything I would want you to take from this, it is that you
-        should focus on your goal and not let a superficial tools or processes
-        get in the way. If, however, you are a lost cause such as myself, and
-        you're unable to listen to good advice, then maybe you're interested in
-        reading about how I'm attempting to use web components to do the same
-        thing I've done a million times before, but slightly different (COMING
-        SOON).
+        If there's anything I would want you to take from this, it's that you
+        should focus on your goal and not let superficial tools or processes get
+        in the way. If, however, you are a lost cause such as myself, and you're
+        unable to listen to good advice, then maybe you're interested in reading
+        about how I'm attempting to use web components to do the same thing I've
+        done a million times before, but in a slightly different way (coming
+        soon&#8482;).
       </p>
     </article>
   </main>
